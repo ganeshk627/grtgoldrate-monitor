@@ -15,10 +15,11 @@ def scrape_data():
         browser = p.chromium.launch()
         page = browser.new_page()
         page.set_viewport_size({"width": 1600, "height": 1200})
-        time.sleep(5)
 
         # Visit website (replace URL with your target site)
         page.goto('https://www.grtjewels.com/')
+        page.screenshot(path="screenshot.png", full_page=False)
+        time.sleep(5)
 
         # Scrape the data (replace with your selectors)
         gold24 = page.query_selector('//li[contains(text(),"GOLD - 24k -")]').inner_text()

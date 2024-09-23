@@ -45,5 +45,13 @@ jobs:
         with:
           name: grt_rates
           path: grt_rates.csv
+          retention-days: 5
+
+      - name: Upload Screenshot file
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshot
+          path: screenshot.png
+          retention-days: 1
 
           
