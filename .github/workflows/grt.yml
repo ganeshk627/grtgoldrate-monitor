@@ -36,11 +36,11 @@ jobs:
 
       - name: Scrape and send email
         run: |
-          sudo apt-get install xvfb
+#          sudo apt-get install xvfb
           pip install -r requirements.txt
           playwright install chromium
-          # python scrape_grtrates.py
-          xvfb-run python scrape.py
+           python scrape_grtrates.py
+#          xvfb-run python scrape.py
 
       - name: Upload CSV file
         if: always()   # This ensures that the step will run even if the previous steps fail
