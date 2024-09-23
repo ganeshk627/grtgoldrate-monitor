@@ -28,11 +28,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5.2.0
              
-      - name: Download CSV artifact
-        uses: actions/download-artifact@v3
-        with:
-         name: grt_rates.csv
-         path: grt_rates.csv
+#      - name: Download CSV artifact
+#        uses: actions/download-artifact@v3
+#        with:
+#         name: grt_rates.csv
+#         path: grt_rates.csv
 
       - name: Scrape and send email
         run: |
