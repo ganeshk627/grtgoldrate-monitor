@@ -13,7 +13,7 @@ import json
 # Function to scrape data
 def scrape_data():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True) # XServer need to run headed
         page = browser.new_page()
 
         with open('cookies.json', 'r') as f:
