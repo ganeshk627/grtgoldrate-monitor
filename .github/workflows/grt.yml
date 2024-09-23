@@ -41,6 +41,7 @@ jobs:
           python scrape_grtrates.py
 
       - name: Upload CSV file
+        if: always()   # This ensures that the step will run even if the previous steps fail
         uses: actions/upload-artifact@v3
         with:
           name: grt_rates
@@ -48,6 +49,7 @@ jobs:
           retention-days: 5
 
       - name: Upload Screenshot file
+        if: always()   # This ensures that the step will run even if the previous steps fail
         uses: actions/upload-artifact@v3
         with:
           name: screenshot
