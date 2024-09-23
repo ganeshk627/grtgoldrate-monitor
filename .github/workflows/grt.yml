@@ -5,9 +5,13 @@ name: SCRAPE GRT
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '30 3 * * *' # Runs every day at 3:30 AM UTC/9.00AM IST
+    - cron: '30 3 * * *' # Runs every day at 3:30 AM UTC/9.00 AM IST
   workflow_dispatch: # Allows manual trigger
 
+env: # Define global environment variables here
+  SEND_FROM: ${{ secrets.SEND_FROM }}
+  APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+  SEND_TO: ${{ secrets.SEND_TO }}
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
