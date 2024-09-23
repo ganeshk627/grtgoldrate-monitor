@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import sync_playwright
 import csv
 from datetime import datetime
@@ -12,6 +14,8 @@ def scrape_data():
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page()
+        page.set_viewport_size({"width": 1600, "height": 1200})
+        time.sleep(5)
 
         # Visit website (replace URL with your target site)
         page.goto('https://www.grtjewels.com/')
