@@ -14,11 +14,16 @@ import json
 def scrape_data():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False) # XServer need to run headed
-        page = browser.new_page()
+        # page = browser.new_page()
+        context = browser.new_context(
+            geolocation={"longitude": 79.7460756, "latitude": 11.7508642},
+            permissions=["geolocation"]
+        )
+        page = context.new_page()
 
-        with open('cookies.json', 'r') as f:
-            cookies = json.load(f)
-            page.context.add_cookies(cookies)
+        # with open('cookies.json', 'r') as f:
+        #     cookies = json.load(f)
+        #     page.context.add_cookies(cookies)
 
         page.set_viewport_size({"width": 1600, "height": 1200})
 
